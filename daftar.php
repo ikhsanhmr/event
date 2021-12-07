@@ -1,6 +1,7 @@
 <?php
 
-$inc = mysqli_connect('localhost', 'u6533356', 'K@rtini23', 'u6533356_event');
+// $inc = mysqli_connect('localhost', 'u6533356', 'K@rtini23', 'u6533356_event');
+$inc = mysqli_connect('localhost', 'root', '', 'events');
 
 
 

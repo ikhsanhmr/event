@@ -2,7 +2,8 @@
 
 
 
-$koneksi = mysqli_connect('localhost','root','','event');
+// $koneksi = mysqli_connect('localhost','root','','event');
+$koneksi = mysqli_connect('localhost','root','','events');
 
 
 

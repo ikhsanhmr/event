@@ -1,3 +1,4 @@
+<?php include 'base_url.php'; ?>
 
 <!DOCTYPE html>
 <html lang="en">
