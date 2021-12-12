@@ -1,4 +1,5 @@
 <?php include '../akses_admin.php'; ?>
+<?php include '../../base_url.php';?>
 <?php include '../layouts/header.php'; ?>
 <?php include '../layouts/sidebar.php'; ?>
 <?php include '../../inc/koneksi.php'; ?>
@@ -15,7 +16,6 @@ if (isset($_POST['create'])) {
     $background_image = $_POST['background_image'];
     $singkatan = $_POST['singkatan'];
     $deskripsi = $_POST['deskripsi'];
-
 
     $insert = mysqli_query($koneksi, "INSERT INTO events(judul,nama,tanggal_mulai,jam_mulai,jam_selesai,deskripsi,link_zoom,singkatan,background_image) 
                                                                 VALUES('$judul','$nama','$tanggal_mulai','$jam_mulai','$jam_selesai','$deskripsi','$link_zoom','$singkatan','$background_image') ");

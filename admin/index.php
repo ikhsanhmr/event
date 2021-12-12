@@ -1,5 +1,7 @@
 <?php include 'akses_admin.php'; ?>
 
+<?php include '../base_url.php';?>
+
 <?php include 'layouts/header.php'; ?>
 
 <?php include 'layouts/sidebar.php'; ?>
