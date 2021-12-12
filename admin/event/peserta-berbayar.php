@@ -1,15 +1,30 @@
-<?php include '../akses_admin.php'; ?>
 <?php include '../../base_url.php';?>
+<?php include '../akses_admin.php'; ?>
 <?php include '../layouts/header.php'; ?>
 <?php include '../layouts/sidebar.php'; ?>
 <?php include '../../inc/koneksi.php'; ?>
 
 <?php
-$userWithCertificate = mysqli_query($koneksi, "SELECT *,user_event.id AS UserEventId, users.nama AS nama_peserta FROM user_event 
-                                                            INNER JOIN users ON user_event.user_id = users.id
-                                                            INNER JOIN events ON user_event.event_id = events.id 
-                                                            WHERE status != ''
-                                                            ORDER BY user_event.id DESC");
+    if(isset($_GET['paginate'])){
+        $paginate = $_GET['paginate'];
+        $page = 0;
+        if(isset($_GET['page'])){
+            $page = ($_GET['page']-1) * $paginate;
+        }
+        $userWithCertificate = mysqli_query($koneksi, "SELECT *,user_event.id AS UserEventId, users.nama AS nama_peserta FROM user_event 
+                                                        INNER JOIN users ON user_event.user_id = users.id
+                                                        INNER JOIN events ON user_event.event_id = events.id 
+                                                        WHERE status != ''
+                                                        ORDER BY user_event.id DESC
+                                                        LIMIT $page, $paginate");
+    } else {
+        $userWithCertificate = mysqli_query($koneksi, "SELECT *,user_event.id AS UserEventId, users.nama AS nama_peserta FROM user_event 
+                                                        INNER JOIN users ON user_event.user_id = users.id
+                                                        INNER JOIN events ON user_event.event_id = events.id 
+                                                        WHERE status != ''
+                                                        ORDER BY user_event.id DESC");
+    }
+
 ?>
 
 <?php
@@ -43,6 +58,19 @@ if (isset($_POST['acc']) || isset($_POST['reject'])) {
             <h3 class="card-title">Peserta Event Berbayar</h3>
         </div>
         <div class="card-body">
+            <div class="select">
+                <form action="" method="" class="d-flex align-items-center">
+                    <span style="font-weight : 600;" >Show </span>
+                    <select class="form-select" aria-label="Default select example" style="width: fit-content;" name="paginate">
+                        <option value="10">10</option>
+                        <option value="25">25</option>
+                        <option value="50">50</option>
+                        <option value="100">100</option>
+                    </select>
+                    <span style="font-weight : 600" > entries</span>
+                    <button type="submit" style="width: fit-content" class="badge bg-success">Paginate</button>
+                </form>
+            </div>
             <div class="table-responsive mt-3">
                 <table class="table table-striped table-hover">
                     <tr>

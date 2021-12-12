@@ -1,3 +1,4 @@
+<?php include '../../base_url.php'; ?>
 <?php include '../akses_admin.php'; ?>
 <?php include '../../inc/koneksi.php'; ?>
 

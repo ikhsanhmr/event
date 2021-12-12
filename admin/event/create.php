@@ -1,5 +1,5 @@
-<?php include '../akses_admin.php'; ?>
 <?php include '../../base_url.php';?>
+<?php include '../akses_admin.php'; ?>
 <?php include '../layouts/header.php'; ?>
 <?php include '../layouts/sidebar.php'; ?>
 <?php include '../../inc/koneksi.php'; ?>

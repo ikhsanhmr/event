@@ -4,6 +4,6 @@ if (session_status() == PHP_SESSION_NONE) {
 }
 if(!isset($_SESSION['admin'])){ 
     // header("location:javascript://history.go(-1)");
-    header('Location: https://event.lokerprogrammer.com/index.php');
+    header('Location: ' . base_url() . '/index.php');
 }
 ?>
